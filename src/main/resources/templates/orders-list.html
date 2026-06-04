@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Список заказов</title>
+</head>
+<body>
+<h2>Магазин Автозапчастей — База заказов </h2>
+<table border="1" cellpadding="6">
+    <thead>
+    <tr>
+        <th>ID Заказа</th>
+        <th>Статус</th>
+        <th>Адрес доставки</th>
+        <th>Сумма (руб.)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="order : ${orders}">
+        <td th:text="${order.orderId}"></td>
+        <td th:text="${order.status}"></td>
+        <td th:text="${order.shippingAddress}"></td>
+        <td th:text="${order.totalPrice}"></td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<a href="/orders/new"><button type="button">Создать новый заказ</button></a>
+</body>
+</html>
